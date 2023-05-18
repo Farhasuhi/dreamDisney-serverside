@@ -4,16 +4,16 @@ import { FaFacebook,FaTwitter,FaInstagram,FaPinterestSquare,FaLinkedin } from 'r
 const TopNav = () => {
     const icon = <>
         <li>
-            <a className='text-2xl'><FaFacebook></FaFacebook></a>
-            <a className='text-2xl'><FaTwitter></FaTwitter></a>
-            <a className='text-2xl'><FaInstagram></FaInstagram></a>
-            <a className='text-2xl'><FaPinterestSquare></FaPinterestSquare></a>
-            <a className='text-2xl'><FaLinkedin></FaLinkedin></a>
+            <a className='text-xl'><FaFacebook></FaFacebook></a>
+            <a className='text-xl'><FaTwitter></FaTwitter></a>
+            <a className='text-xl'><FaInstagram></FaInstagram></a>
+            <a className='text-xl'><FaPinterestSquare></FaPinterestSquare></a>
+            <a className='text-xl'><FaLinkedin></FaLinkedin></a>
         </li>
     </>
     return (
-        <div className='bg-yellow-500'>
-            <div className="w-[90%] mx-auto flex flex-col justify-center items-center md:flex-row md:justify-between p-5">
+        <div className='bg-yellow-400'>
+            <div className="w-[95%] md:w-[90%] mx-auto flex flex-col justify-center items-center md:flex-row md:justify-between p-2 md:p-0">
                 <div>
                     <div className="flex">
                         <ul className="menu menu-horizontal px-1">
