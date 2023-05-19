@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaStarOfDavid } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const LastNav = () => {
+    const{user}=useContext(AuthContext);
     const menu = <>
         <li><Link>Home</Link></li>
         <li><Link>All Toys</Link></li>
+        {user?.email && <>
         <li><Link>My Toys</Link></li>
-        <li><Link>Add a toys</Link></li>
+        <li><Link>Add a toys</Link></li></>}
         <li><Link>Blogs</Link></li>
     </>
     return (

@@ -7,7 +7,7 @@ const TabsSection = ({ doll }) => {
 
 
     return (
-        <div className="card w-96 mx-auto bg-base-100 drop-shadow-2xl">
+        <div className="card w-full md:w-96 mx-auto bg-base-100 drop-shadow-2xl">
             <figure className="mt-3"><img src={image} className="w-[300px] h-[300px]" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Toy Name:{toyName}</h2>

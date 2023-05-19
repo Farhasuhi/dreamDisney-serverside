@@ -1,14 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {FaStarOfDavid} from 'react-icons/fa'
+import { FaStarOfDavid } from 'react-icons/fa'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProviders';
 
 const MainNav = () => {
+    const { logOut, user, update } = useContext(AuthContext);
+    const signOut = () => {
+        logOut()
+            .then(() => {
+                console.log("logout")
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     const menu = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
-        <li><Link>Add a toys</Link></li>
+        {user?.email && <>
+            <li><Link>My Toys</Link></li>
+            <li><Link>Add a toys</Link></li>
+        </>}
         <li><Link>Blogs</Link></li>
+        {
+            user?.email?<li><Link onClick={signOut}><button className="btn btn-active btn-ghost mr-2">LogOut</button></Link></li>:<li><Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link></li>
+        }
+        {user?.email?<li title={user.displayName}><img className="w-24" src={user.photoURL}/></li>:""}
+         
     </>
     return (
         <div className='bg-blue-200 py-5 '>
@@ -31,7 +50,14 @@ const MainNav = () => {
                     </div>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link>
+                    {user ? <div className='hidden md:flex'>
+                        <Link onClick={signOut}><button className="btn btn-active btn-ghost mr-2">LogOut</button></Link>
+                        <div className="avatar" title={user.displayName}>
+                            <div className="w-14 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </div>
+                    </div> : <div className='hidden md:flex'><Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link></div>}
                 </div>
             </div>
         </div>
