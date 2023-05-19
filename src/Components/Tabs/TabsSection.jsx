@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +16,7 @@ const TabsSection = ({ doll }) => {
                 <p>Price:${price}</p>
                 <p>Rating:{rating}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View details</button>
+                    <Link to={`/categories/${_id}`}><button className="btn btn-primary">View details</button></Link>
                 </div>
             </div>
         </div>
