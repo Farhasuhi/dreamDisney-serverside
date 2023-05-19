@@ -4,7 +4,7 @@ import {FaStarOfDavid} from 'react-icons/fa'
 
 const MainNav = () => {
     const menu = <>
-        <li><Link>Home</Link></li>
+        <li><Link to={'/'}>Home</Link></li>
         <li><Link>All Toys</Link></li>
         <li><Link>My Toys</Link></li>
         <li><Link>Add a toys</Link></li>
@@ -31,8 +31,7 @@ const MainNav = () => {
                     </div>
                 </div>
                 <div className="navbar-end">
-                    <Link><button className="btn btn-active btn-ghost mr-2">Login</button></Link>
-
+                    <Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link>
                 </div>
             </div>
         </div>
