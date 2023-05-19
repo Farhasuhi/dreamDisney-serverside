@@ -29,7 +29,7 @@ const Login = () => {
                                     <p className='font-semibold'>Register account</p>
                                     <p>By creating an account you will be able to adding your toy and keep track of the login you have previously made post.</p>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-warning text-[#3f3e3e]"><Link to={'/signUp'}>Register</Link></button>
+                                        <button className="btn btn-warning text-[#3f3e3e]"><Link to={'/signup'}>Register</Link></button>
                                     </div>
                                 </div>
                             </div>
