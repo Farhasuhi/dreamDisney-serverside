@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import SingleDoll from "../Pages/SingleDoll/SingleDoll";
 import AllToys from "../Pages/AllToys/AllToys";
+import AddToys from "../Pages/AddToy/AddToys";
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 path:'/categories/:id',
                 element:<SingleDoll></SingleDoll>,
                 loader:({params})=>fetch(`https://dream-disney-server-site.vercel.app/categories/doll/${params.id}`)
+            },
+            {
+                path:'/AddToy',
+                element:<AddToys></AddToys>
             }
         ]
     },

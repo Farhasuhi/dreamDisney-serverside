@@ -51,7 +51,7 @@ const SignUp = () => {
         })
     }
     return (
-        <div>
+        <div className='font-[Lobster]'>
             <Banner>
                 <div className='relative w-full'>
                     <img src={image} className="w-full h-[200px] rounded-xl object-cover" />

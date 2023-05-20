@@ -20,7 +20,7 @@ const MainNav = () => {
         <li><Link to={'/allToys'}>All Toys</Link></li>
         {user?.email && <>
             <li><Link>My Toys</Link></li>
-            <li><Link>Add a toys</Link></li>
+            <li><Link to={'/addToy'}>Add a toys</Link></li>
         </>}
         <li><Link>Blogs</Link></li>
         {

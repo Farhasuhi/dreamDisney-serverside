@@ -17,7 +17,7 @@ const Home = () => {
         fetch(`https://dream-disney-server-site.vercel.app/categories/${activeTab}`)
             .then(res => res.json())
             .then(data => {
-                setDolls(data)
+                setDolls(data.slice(0,2))
                 console.log(data)
             })
     }, [activeTab])

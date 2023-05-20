@@ -9,7 +9,7 @@ const AllToys = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch(`https://dream-disney-server-site.vercel.app/categories`)
+        fetch(`https://dream-disney-server-site.vercel.app/allToys`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
