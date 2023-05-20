@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import SingleDoll from "../Pages/SingleDoll/SingleDoll";
+import AllToys from "../Pages/AllToys/AllToys";
 
 
 
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
                 element:<SignUp></SignUp>
             },
             {
-                path:'/categories'
+                path:'/allToys',
+                element:<AllToys></AllToys>,
             },
             {
                 path:'/categories/:id',

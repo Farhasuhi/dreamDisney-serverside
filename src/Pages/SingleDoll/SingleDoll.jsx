@@ -8,9 +8,7 @@ import '@smastrom/react-rating/style.css';
 const SingleDoll = () => {
     const doll = useLoaderData();
     const { toyName, subCategory, price, image, details,
-        email, sellerName,rating,availableQuantity
-
-    } = doll;
+        email, sellerName,rating,availableQuantity} = doll;
     console.log(doll);
 
     return (

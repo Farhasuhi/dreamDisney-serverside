@@ -7,7 +7,7 @@ const LastNav = () => {
     const{user}=useContext(AuthContext);
     const menu = <>
         <li><Link>Home</Link></li>
-        <li><Link>All Toys</Link></li>
+        <li><Link to={'/allToys'}>All Toys</Link></li>
         {user?.email && <>
         <li><Link>My Toys</Link></li>
         <li><Link>Add a toys</Link></li></>}
@@ -21,9 +21,9 @@ const LastNav = () => {
                         {menu}
                     </ul>
                 </div>
-                <div className="form-control flex md:hidden justify-center items-center">
+                {/* <div className="form-control flex md:hidden justify-center items-center">
                     <input type="text" placeholder="Search..." className="input input-bordered w-[300px] rounded-[100px] text-xl" />
-                </div>
+                </div> */}
 
             </div>
         </div>

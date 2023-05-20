@@ -17,7 +17,7 @@ const MainNav = () => {
     }
     const menu = <>
         <li><Link to={'/'}>Home</Link></li>
-        <li><Link>All Toys</Link></li>
+        <li><Link to={'/allToys'}>All Toys</Link></li>
         {user?.email && <>
             <li><Link>My Toys</Link></li>
             <li><Link>Add a toys</Link></li>
@@ -45,9 +45,9 @@ const MainNav = () => {
                 </div>
                 <div className="navbar-center">
                     <a className="btn btn-ghost normal-case  text-[18px] flex md:hidden"><FaStarOfDavid className='text-[#808ea8] mr-1'></FaStarOfDavid> Dream <span className='font-[Lobster] italic ml-2 text-2xl md:text-4xl font-bold text-[#043b6e]'>Disney</span></a>
-                    <div className="form-control hidden md:flex">
+                    {/* <div className="form-control hidden md:flex">
                         <input type="text" placeholder="Search..." className="input input-bordered w-[300px] rounded-[100px] text-xl" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="navbar-end">
                     {user ? <div className='hidden md:flex'>
