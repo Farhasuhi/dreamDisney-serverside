@@ -1,40 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Update = () => {
-    const toys=useLoaderData();
-    const { toyName, subCategory, price, image, details,
-        email, sellerName, rating, availableQuantity, _id } = toys;
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const availableQuantity = form.quantity.value;
-        const price = form.price.value;
-        const details = form.description.value;
-        const updatedData = {
-            availableQuantity, price, details
-        }
-        fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updatedData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Dolls updated successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                    form.reset()
-                }
-            })
-    }
+    // const toys=useLoaderData();
+    const {user}=useContext(AuthContext)
+    // const { toyName, subCategory, price, image, details,
+    //     email, sellerName, rating, availableQuantity, _id } = toys;
+    const url=`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?${user?.email}/${_id}`;
+    fetch()
     return (
         <div className="">
             <div className=" w-full h-full  relative">
@@ -44,9 +18,9 @@ const Update = () => {
                             <div className='flex items-center justify-between mb-5'>
                                 <h4 className='font-bold text-2xl  text-amber-900'>Information changes</h4>
                             </div>
-                            {/* <div className='my-5'>
+                            <div className='my-5'>
                                 <p className='font-medium text-[18px]'>Toy Name: <span className='text-black'>{toyName}</span></p>
-                            </div> */}
+                            </div>
                             <form className='space-y-5' onSubmit={handleSubmit}>
                                 <div className='flex justify-evenly'>
                                     <div className="form-control">

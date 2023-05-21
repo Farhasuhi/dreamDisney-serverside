@@ -10,12 +10,14 @@ import 'react-tabs/style/react-tabs.css';
 import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
 import Photos from '../../Components/Photos/Photos';
 import Reviews from '../../Components/Review/Reviews';
+import useTittle from '../../hooks/useTittle';
 
 
 
 const Home = () => {
     const [dolls, setDolls] = useState([]);
-    const [activeTab, setActiveTab] = useState("Disney-Princes")
+    const [activeTab, setActiveTab] = useState("Disney-Princes");
+    useTittle('home')
 
 
     useEffect(() => {

@@ -51,11 +51,11 @@ const router = createBrowserRouter([
                 path:'/myToy',
                 element:<PrivateRoutes><MyToy></MyToy></PrivateRoutes>
             },
-            // {
-            //     path:'/update/:id',
-            //     element:<MyToyRow></MyToyRow>,
-            //     loader:({params})=>fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${params.id}`)
-            // }
+            {
+                path:'/myDolls/:id',
+                element:<Update></Update>,
+                
+            }
         ]
     },
 ]);

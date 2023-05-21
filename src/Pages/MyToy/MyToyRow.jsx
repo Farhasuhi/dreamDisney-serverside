@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 
 
-const MyToyRow = ({ toy ,handleDelete,setMyDolls}) => {
+const MyToyRow = ({ toy ,handleDelete,setMyDolls,myDolls}) => {
     const { user } = useContext(AuthContext)
     const { toyName, subCategory, price, image, details,
         email, sellerName, rating, availableQuantity, _id } = toy;
@@ -36,11 +36,11 @@ const MyToyRow = ({ toy ,handleDelete,setMyDolls}) => {
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
-                        // const remaining=myDolls.filter(md=>md._id!==_id)
-                        // const updated=bookings.find(md => md._id === _id)
-                        // const newUpdated=[updated,...remaining]
-                        // setMyDolls(newUpdated)
-                        // form.reset()
+                        const remaining=myDolls.filter(md=>md._id!==_id)
+                        const updated=bookings.find(md => md._id === _id)
+                        const newUpdated=[updated,...remaining]
+                        setMyDolls(newUpdated)
+                        form.reset()
                     }
                 })
         }
@@ -61,7 +61,7 @@ const MyToyRow = ({ toy ,handleDelete,setMyDolls}) => {
             </td>
             <th>
                 <div className='ml-10'>
-                    {/* <Link to={`/update/${_id}`}><button className="btn btn-warning btn-xs font-bold text-grey-700">Update</button></Link> */}
+                    {/* <Link to={`/myDolls/${_id}`}><button className="btn btn-warning btn-xs font-bold text-grey-700">Update</button></Link> */}
                     <label htmlFor="my-modal-6" className="btn btn-warning btn-xs font-bold text-grey-700">Update</label>
                     <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">

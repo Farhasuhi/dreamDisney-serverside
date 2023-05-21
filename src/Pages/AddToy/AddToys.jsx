@@ -3,10 +3,12 @@ import Banner from '../../Shared/Banner/Banner';
 import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2'
+import useTittle from '../../hooks/useTittle';
 
 
 const AddToys = () => {
     const { user } = useContext(AuthContext);
+    useTittle('addToys')
     const handleAddingToy = (event) => {
         event.preventDefault();
         const form = event.target;

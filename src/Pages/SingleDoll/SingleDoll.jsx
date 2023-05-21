@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
+import useTittle from '../../hooks/useTittle';
 
 
 
@@ -10,6 +11,7 @@ const SingleDoll = () => {
     const { toyName, subCategory, price, image, details,
         email, sellerName,rating,availableQuantity} = doll;
     console.log(doll);
+    useTittle({toyName})
 
     return (
         <div>

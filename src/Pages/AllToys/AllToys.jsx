@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToysRow from './ToysRow/ToysRow';
 import { FaSistrix } from 'react-icons/fa';
+import useTittle from '../../hooks/useTittle';
 
 const AllToys = () => {
     // const allToys = useLoaderData();
     const [searchText, setSearchText] = useState("");
     const [toys, setToys] = useState([]);
+    useTittle('allToys')
 
     useEffect(() => {
         fetch(`https://dream-disney-server-site.vercel.app/allToys`)

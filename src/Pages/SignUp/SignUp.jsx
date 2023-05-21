@@ -4,11 +4,13 @@ import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProviders';
+import useTittle from '../../hooks/useTittle';
 
 const SignUp = () => {
     const {signUp,update,googleSignIn}=useContext(AuthContext);
     const[error,setError]=useState("");
     const[success,setSuccess]=useState("");
+    useTittle('signUp')
     const navigate=useNavigate();
     const handleSignUp=(event)=>{
         event.preventDefault();

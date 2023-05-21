@@ -3,6 +3,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 import MyToyRow from './MyToyRow';
 import Swal from 'sweetalert2'
 import { data } from 'autoprefixer';
+import useTittle from '../../hooks/useTittle';
 const option = [
     { value: 'Price-Ascending' },
     { value: 'Price-Descending' },
@@ -10,6 +11,7 @@ const option = [
 const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [myDolls, setMyDolls] = useState([]);
+    useTittle('myToys')
 
     useEffect(() => {
         fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?email=${user?.email}`)
@@ -108,7 +110,7 @@ const MyToy = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls}  toy={toy}></MyToyRow>)}
+                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls} myDolls={myDolls}  toy={toy}></MyToyRow>)}
                     </tbody>
                 </table>
             </div>

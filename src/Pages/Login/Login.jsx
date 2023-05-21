@@ -4,6 +4,8 @@ import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProviders';
+import useTittle from '../../hooks/useTittle';
+
 
 const Login = () => {
     const {signIn,googleSignIn }=useContext(AuthContext);
@@ -11,12 +13,13 @@ const Login = () => {
     const navigate=useNavigate();
     const location=useLocation();
     const from=location.state?.from?.pathname || '/';
-
+    useTittle('login')
     const handleLogin=(event)=>{
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;       
         const password=form.password.value;
+        
         signIn(email,password)
         .then(result=>{
             const user=result.user;
