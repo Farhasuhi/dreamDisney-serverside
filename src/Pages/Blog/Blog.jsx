@@ -2,6 +2,7 @@ import React from 'react';
 import useTittle from '../../hooks/useTittle';
 
 const Blog = () => {
+    
     useTittle('blog');
     return (
         <div className='md:w-[90%] w-[95%] mx-auto'>
