@@ -22,7 +22,7 @@ const MainNav = () => {
             <li><Link to={'/myToy'}>My Toys</Link></li>
             <li><Link to={'/addToy'}>Add a toys</Link></li>
         </>}
-        <li><Link>Blogs</Link></li>
+        <li><Link to={'./blogs'}>Blogs</Link></li>
         {
             user?.email ? <li><Link onClick={signOut}><button className="btn btn-active btn-ghost mr-2">LogOut</button></Link></li> : <li><Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link></li>
         }

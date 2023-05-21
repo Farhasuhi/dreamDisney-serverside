@@ -11,7 +11,7 @@ const LastNav = () => {
         {user?.email && <>
         <li><Link to={'/myToy'}>My Toys</Link></li>
         <li><Link to={'/addToy'}>Add a toys</Link></li></>}
-        <li><Link>Blogs</Link></li>
+        <li><Link to={'./blogs'}>Blogs</Link></li>
     </>
     return (
         <div>

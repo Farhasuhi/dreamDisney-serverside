@@ -13,6 +13,7 @@ import Update from "../Pages/Update/Update";
 import PrivateRoutes from "./PrivateRoutes";
 import Error from "../Pages/Error/Error";
 import MyToyRow from "../Pages/MyToy/MyToyRow";
+import Blog from "../Pages/Blog/Blog";
 
 
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
                 path:'/myDolls/:id',
                 element:<Update></Update>,
                 
+            },
+            {
+                path:'/blogs',
+                element:<Blog></Blog>
             }
         ]
     },

@@ -65,7 +65,7 @@ const MyToyRow = ({ toy ,handleDelete,setMyDolls,myDolls}) => {
                     <label htmlFor="my-modal-6" className="btn btn-warning btn-xs font-bold text-grey-700">Update</label>
                     <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
-                        <div className="modal-box modal-box w-full h-full  relative bg-[url('./5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg')] bg-cover">
+                        <div className="modal-box  w-full h-full  relative bg-[url('./5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg')] bg-cover">
                             <div className=' absolute h-full w-full justify-start flex items-center left-0 top-0  bg-gradient-to-tr from-[#9CA3AF] to-[rgba(21, 21, 21, 0)] rounded-xl'>
                                 <div>
 
