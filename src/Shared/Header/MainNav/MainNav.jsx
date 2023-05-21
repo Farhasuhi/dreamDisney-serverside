@@ -24,15 +24,16 @@ const MainNav = () => {
         </>}
         <li><Link>Blogs</Link></li>
         {
-            user?.email?<li><Link onClick={signOut}><button className="btn btn-active btn-ghost mr-2">LogOut</button></Link></li>:<li><Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link></li>
+            user?.email ? <li><Link onClick={signOut}><button className="btn btn-active btn-ghost mr-2">LogOut</button></Link></li> : <li><Link to={'/login'}><button className="btn btn-active btn-ghost mr-2">Login</button></Link></li>
         }
-        {user?.email?<li title={user.displayName}><img className="w-24" src={user.photoURL}/></li>:""}
-         
+        {user?.email ? <li title={user.displayName}><img className="w-24" src={user.photoURL} /></li> : ""}
+
     </>
     return (
         <div className='bg-blue-200 py-5 '>
             <div className="navbar w-[95%] md:w-[90%] mx-auto ">
-                <div className="navbar-start">
+                <div className="navbar-start" data-aos="fade-up"
+                    data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#474b42]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

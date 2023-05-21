@@ -108,7 +108,7 @@ const MyToy = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls} toy={toy}></MyToyRow>)}
+                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls}  toy={toy}></MyToyRow>)}
                     </tbody>
                 </table>
             </div>

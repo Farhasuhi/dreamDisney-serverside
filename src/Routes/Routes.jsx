@@ -12,6 +12,7 @@ import MyToy from "../Pages/MyToy/MyToy";
 import Update from "../Pages/Update/Update";
 import PrivateRoutes from "./PrivateRoutes";
 import Error from "../Pages/Error/Error";
+import MyToyRow from "../Pages/MyToy/MyToyRow";
 
 
 
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
             },
             // {
             //     path:'/update/:id',
-            //     element:<Update></Update>,
+            //     element:<MyToyRow></MyToyRow>,
             //     loader:({params})=>fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${params.id}`)
             // }
         ]

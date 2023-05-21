@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../../Shared/Banner/Banner';
 import Sticker from '../../Components/Sticker/Sticker';
 import TabsSection from '../../Components/Tabs/TabsSection';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
+import Photos from '../../Components/Photos/Photos';
+import Reviews from '../../Components/Review/Reviews';
 
 
 
@@ -27,10 +32,10 @@ const Home = () => {
     return (
         <div>
             <Banner>
-                <div className='relative w-full'>
+                <div className='relative w-full' >
                     <img src={image} className="w-full rounded-xl" />
                     <div className="absolute h-full w-full justify-start flex items-center left-0 top-0  bg-gradient-to-tr from-[#d1d3d4] to-[rgba(21, 21, 21, 0)] rounded-xl">
-                        <div className='text-white space-y-7 pl-12 w-1/2'>
+                        <div className='text-white space-y-7 pl-12 w-1/2' data-aos="fade-right" data-aos-duration="2000">
                             <h2 className='text-4xl text-[#20374d] md:text-6xl font-bold'>Dolls</h2>
                             <p className='text-[#3f4142] text-[16px] font-medium'>Its endless possibilities with these dolls.</p>
                         </div>
@@ -73,6 +78,8 @@ const Home = () => {
                 </Tabs>
 
             </div>
+            <Photos></Photos>
+            <Reviews></Reviews>
 
         </div>
     );
