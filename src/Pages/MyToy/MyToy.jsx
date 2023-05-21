@@ -4,6 +4,7 @@ import MyToyRow from './MyToyRow';
 import Swal from 'sweetalert2'
 import { data } from 'autoprefixer';
 import useTittle from '../../hooks/useTittle';
+import { Navigate, useNavigate } from 'react-router-dom';
 const option = [
     { value: 'Price-Ascending' },
     { value: 'Price-Descending' },
@@ -11,7 +12,9 @@ const option = [
 const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [myDolls, setMyDolls] = useState([]);
-    useTittle('myToys')
+    const [myDoll, setMyDoll] = useState(myDolls);
+    useTittle('myToys');
+    const navigate=useNavigate();
 
     useEffect(() => {
         fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?email=${user?.email}`)
@@ -21,8 +24,35 @@ const MyToy = () => {
                 setMyDolls(data)
             })
     }, [user])
-
     
+    const handleUpload = (data) => {
+        fetch(`https://dream-disney-server-site.vercel.app/myToys/${data._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Dolls updated successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    const remaining = myDolls.filter(myDoll =>myDoll._id!==data._id)
+                    const updated = myDolls.find(md =>md._id === data._id)
+                    const newUpdated = [...remaining,updated];
+                    setMyDolls(newUpdated);
+                    navigate('/myToy')
+                }
+            })
+    }
+
+
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -34,16 +64,16 @@ const MyToy = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
-            if (result.isConfirmed){
-                fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${_id}`,{
-                    method:'DELETE',
-                    headers:{
-                        'content-type':'application/json'
+            if (result.isConfirmed) {
+                fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${_id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json'
                     },
-                    body:JSON.stringify()
+                    body: JSON.stringify()
                 })
                     .then(res => res.json())
-                    .then(data=>{
+                    .then(data => {
                         console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire(
@@ -110,7 +140,7 @@ const MyToy = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls} myDolls={myDolls}  toy={toy}></MyToyRow>)}
+                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls} myDolls={myDolls} toy={toy} handleUpload={handleUpload }></MyToyRow>)}
                     </tbody>
                 </table>
             </div>
