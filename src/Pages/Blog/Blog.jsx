@@ -2,7 +2,7 @@ import React from 'react';
 import useTittle from '../../hooks/useTittle';
 
 const Blog = () => {
-    useTittle('blog')
+    useTittle('blog');
     return (
         <div className='md:w-[90%] w-[95%] mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
