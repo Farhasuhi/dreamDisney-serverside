@@ -8,6 +8,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import SingleDoll from "../Pages/SingleDoll/SingleDoll";
 import AllToys from "../Pages/AllToys/AllToys";
 import AddToys from "../Pages/AddToy/AddToys";
+import MyToy from "../Pages/MyToy/MyToy";
+import Update from "../Pages/Update/Update";
 
 
 
@@ -40,7 +42,16 @@ const router = createBrowserRouter([
             {
                 path:'/AddToy',
                 element:<AddToys></AddToys>
-            }
+            },
+            {
+                path:'/myToy',
+                element:<MyToy></MyToy>
+            },
+            // {
+            //     path:'/update/:id',
+            //     element:<Update></Update>,
+            //     loader:({params})=>fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/${params.id}`)
+            // }
         ]
     },
 ]);

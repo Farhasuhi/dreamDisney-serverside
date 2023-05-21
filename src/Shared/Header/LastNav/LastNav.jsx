@@ -9,7 +9,7 @@ const LastNav = () => {
         <li><Link>Home</Link></li>
         <li><Link to={'/allToys'}>All Toys</Link></li>
         {user?.email && <>
-        <li><Link>My Toys</Link></li>
+        <li><Link to={'/myToy'}>My Toys</Link></li>
         <li><Link to={'/addToy'}>Add a toys</Link></li></>}
         <li><Link>Blogs</Link></li>
     </>

@@ -38,8 +38,10 @@ const AuthProviders = ({ children }) => {
         }
     },[])
 
+   
+
     const authInfo = {
-        user,signUp,signIn,logOut,update,googleSignIn
+        user,signUp,signIn,logOut,update,googleSignIn,
     }
 
     return (
