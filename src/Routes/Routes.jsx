@@ -10,6 +10,8 @@ import AllToys from "../Pages/AllToys/AllToys";
 import AddToys from "../Pages/AddToy/AddToys";
 import MyToy from "../Pages/MyToy/MyToy";
 import Update from "../Pages/Update/Update";
+import PrivateRoutes from "./PrivateRoutes";
+import Error from "../Pages/Error/Error";
 
 
 
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<Error></Error>,
         children: [
             {
               path: "/",
@@ -36,16 +39,16 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories/:id',
-                element:<SingleDoll></SingleDoll>,
+                element:<PrivateRoutes><SingleDoll></SingleDoll></PrivateRoutes>,
                 loader:({params})=>fetch(`https://dream-disney-server-site.vercel.app/categories/doll/${params.id}`)
             },
             {
                 path:'/AddToy',
-                element:<AddToys></AddToys>
+                element:<PrivateRoutes><AddToys></AddToys></PrivateRoutes>
             },
             {
                 path:'/myToy',
-                element:<MyToy></MyToy>
+                element:<PrivateRoutes><MyToy></MyToy></PrivateRoutes>
             },
             // {
             //     path:'/update/:id',

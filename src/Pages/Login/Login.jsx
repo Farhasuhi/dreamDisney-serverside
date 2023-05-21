@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import Banner from '../../Shared/Banner/Banner';
 import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
     const {signIn,googleSignIn }=useContext(AuthContext);
-    const navigate=useNavigate();
     const[error,setError]=useState("");
+    const navigate=useNavigate();
+    const location=useLocation();
+    const from=location.state?.from?.pathname || '/';
 
     const handleLogin=(event)=>{
         event.preventDefault();
@@ -18,9 +20,10 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
             const user=result.user;
+            navigate(from,{replace:true})
             console.log(user)
             form.reset();
-            navigate('/');
+            
         })
         .catch(error=>{
             setError(error.message)
