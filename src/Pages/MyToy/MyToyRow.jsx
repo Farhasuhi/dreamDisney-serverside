@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 
 
-const MyToyRow = ({ toy, handleDelete, setMyDolls, myDolls ,handleUpload }) => {
+const MyToyRow = ({ toy, handleDelete,handleUpload }) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext)
     const { toyName, subCategory, price, image, details,
@@ -64,7 +64,6 @@ const MyToyRow = ({ toy, handleDelete, setMyDolls, myDolls ,handleUpload }) => {
             </td>
             <th>
                 <div className='ml-10'>
-                    {/* <Link to={`/myDolls/${_id}`}><button className="btn btn-warning btn-xs font-bold text-grey-700">Update</button></Link> */}
                     <label htmlFor="my-modal-6" className="btn btn-warning btn-xs font-bold text-grey-700">Update</label>
                     <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">

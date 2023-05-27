@@ -13,19 +13,22 @@ const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [myDolls, setMyDolls] = useState([]);
     const [myDoll, setMyDoll] = useState(myDolls);
+    const [control, setControl] = useState(false);
+    const [sortOrder,setOrder] = useState('asc');
     useTittle('myToys');
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?email=${user?.email}`)
+        fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?email=${user?.email}&sort=${sortOrder}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setMyDolls(data)
             })
-    }, [user])
-    
+    }, [user,sortOrder])
+
     const handleUpload = (data) => {
+        console.log(data)
         fetch(`https://dream-disney-server-site.vercel.app/myToys/${data._id}`, {
             method: 'PUT',
             headers: {
@@ -43,11 +46,12 @@ const MyToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                    const remaining = myDolls.filter(myDoll =>myDoll._id!==data._id)
-                    const updated = myDolls.find(md =>md._id === data._id)
-                    const newUpdated = [...remaining,updated];
+                    setControl(!control);
+                    const remaining = myDolls.filter(myDoll => myDoll._id !== data._id)
+                    const updated = myDolls.find(md => md._id === data._id)
+                    const newUpdated = [...remaining, updated];
                     setMyDolls(newUpdated);
-                    navigate('/myToy')
+
                 }
             })
     }
@@ -81,7 +85,7 @@ const MyToy = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = myDolls.filter(md => md._id !== _id)
+                            const remaining = myDolls.filter(md => md._id !== data._id)
                             setMyDolls(remaining)
 
                         }
@@ -90,41 +94,25 @@ const MyToy = () => {
         })
     }
 
-    const ascending = () => {
-        fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys/ascending?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setMyDolls(data)
-            })
+    const handleSort=(event)=>{
+        console.log(event.target.value)
+        setOrder(event.target.value)
+    }
 
-    }
-    const descending = () => {
-        fetch(`https://dream-disney-server-site-farhasuhi.vercel.app/myToys?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setMyDolls(data)
-            })
-    }
 
 
     return (
         <div>
             <div className="overflow-x-auto w-full  mt-2">
-                <div className='text-right'>
-
-                    <form >
-                        <label htmlFor="sort">
-                            <select name="sort" id="sort">
-                                <option value="Price-Ascending" onClick={ascending}>
-                                    Price-Ascending
-                                </option>
-                                <option value="Price-Descending" onClick={descending}>
-                                    Price-Descending
-                                </option>
-                            </select>
-                        </label>
-                    </form>
-
+                <div className='text-center my-5'>
+                    <select name="sort" id="sort" className='p-2 bg-red-400 text-yellow-100 border-none rounded-3xl' value={sortOrder} onChange={handleSort}>
+                        <option value="asc" className='p-2 bg-red-400 text-yellow-100 border-none rounded-3xl'>
+                            Price: High to low
+                        </option>
+                        <option value="desc" className='p-2 bg-red-400 text-yellow-100 border-none rounded-3xl'>
+                            Price:Low to high
+                        </option>
+                    </select>
                 </div>
                 <table className="table-fixed md:table w-full">
                     {/* head */}
@@ -140,7 +128,7 @@ const MyToy = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} setMyDolls={setMyDolls} myDolls={myDolls} toy={toy} handleUpload={handleUpload }></MyToyRow>)}
+                        {myDolls.map(toy => <MyToyRow key={toy._id} handleDelete={handleDelete} toy={toy} handleUpload={handleUpload}></MyToyRow>)}
                     </tbody>
                 </table>
             </div>
