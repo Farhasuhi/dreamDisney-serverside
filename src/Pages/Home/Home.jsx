@@ -11,6 +11,7 @@ import image from '../../assets/5eeb5eb3-dc02-40f5-8ad6-17a945ddd1e5-Dolls.jpg'
 import Photos from '../../Components/Photos/Photos';
 import Reviews from '../../Components/Review/Reviews';
 import useTittle from '../../hooks/useTittle';
+import Contact from '../../Components/Contact/Contact';
 
 
 
@@ -82,7 +83,7 @@ const Home = () => {
             </div>
             <Photos></Photos>
             <Reviews></Reviews>
-
+            <Contact></Contact>              
         </div>
     );
 };
